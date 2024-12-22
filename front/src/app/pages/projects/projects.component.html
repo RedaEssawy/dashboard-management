@@ -1,1 +1,27 @@
-<p>projects works!</p>
+<div class="container mt-5">
+    <h2 class="text-center text-success">All Projects</h2>
+    <input type="text" class="form-control mb-3" [(ngModel)]="searchTerm" placeholder="Search projects...">
+  
+    <table class="table table-hover shadow-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>Project Name</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of filteredProjects; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ project.name }}</td>
+          <td>{{ project.description }}</td>
+          <td>
+            <button class="btn btn-info btn-sm" (click)="viewDetails(project)">View</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteProject(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
